@@ -1,9 +1,6 @@
 require "sinatra"
 require "mongo"
 require "json"
-require 'digest/sha1'
-
-SALT = "1d24c22947c20fd016404302d92116a7"
 
 DB = ENV['MONGOLAB_URI'] || "mongodb://heroku_app15360888:fl7s97tgbunbt7rtogpu0p2cij@ds061787.mongolab.com:61787/heroku_app15360888"
 uri = URI.parse(DB)
@@ -20,7 +17,7 @@ end
 
 post '/newuser' do
   # write to database
-  $db["users"].insert email: params[:email], phonenumber: Digest::SHA1.hexdigest(params[:phonenumber] + SALT), password: params[:password]
+  $db["users"].insert email: params[:email], phonenumber: params[:phonenumber], password: params[:password]
 
   redirect '/', 301
 end
