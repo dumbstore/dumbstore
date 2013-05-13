@@ -3,40 +3,25 @@ require_relative 'lib/dumb'
 
 # dumblib
 module Dumbstore
-  # TODO clean up copy paste job
-  module Voice
+  module AppContainer
     @@apps = {}
 
-    def self.apps
+    def apps
       @@apps
     end
 
-    def self.get id
+    def get id
       raise "AppNotFoundError" unless @@apps[id]
       @@apps[id].new
     end
 
-    def self.register_app id, app_class
+    def register_app id, app_class
       @@apps[id] = app_class
     end
   end
 
-  module Text
-    @@apps = {}
-
-    def self.apps
-      @@apps
-    end
-
-    def self.get id
-      # TODO app not found
-      @@apps[id].new
-    end
-
-    def self.register_app id, app_class
-      @@apps[id] = app_class
-    end
-  end
+  module Voice; extend AppContainer end
+  module Text; extend AppContainer end
 end
 
 class App
