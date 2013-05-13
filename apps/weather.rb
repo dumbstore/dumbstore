@@ -8,7 +8,7 @@ class Weather < Dumbstore::App
 
   def text params
   	fragments = [""]
-  	MAX_SIZE = 160
+  	max_size = 160
 	message_body = params['Body']
 
 	lat = Geocoder.search("#{message_body}").first.geometry["location"]["lat"]
@@ -23,15 +23,14 @@ class Weather < Dumbstore::App
 	forecast_string = forecast_current + forecast_future 
 
 	forecast_string.split.each do |word|
-		if fragments.last.length + word.length + 1 > MAX_SIZE
+		if fragments.last.length + word.length + 1 > max_size
 			fragments.push word 
 		else
 			fragments.last << " #{word}"
 		end
 	end
 	
-    "<Response>#{fragments.map { |frags| "<Sms> #{frags} </Sms>" }.join}</Response>"
-      
+    "<Response>#{fragments.map { |frags| "<Sms>#{frags.strip}</Sms>" }.join}</Response>"
   end
 end
 
