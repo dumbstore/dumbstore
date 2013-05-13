@@ -1,4 +1,5 @@
-require 'twilio-ruby'
+# encoding: utf-8
+
 require 'forecast_io'
 require 'geocoder'
 

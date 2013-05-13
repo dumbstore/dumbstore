@@ -3,6 +3,16 @@ GEM
   specs:
     daemons (1.1.9)
     eventmachine (1.0.3)
+    faraday (0.8.7)
+      multipart-post (~> 1.1)
+    forecast_io (1.1.0)
+      faraday
+      hashie
+      multi_json
+    geocoder (1.1.8)
+    hashie (2.0.5)
+    multi_json (1.7.3)
+    multipart-post (1.2.0)
     rack (1.5.2)
     rack-protection (1.5.0)
       rack
@@ -20,5 +30,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  forecast_io
+  geocoder
   sinatra
   thin
