@@ -87,11 +87,12 @@ get '/' do
 end
 
 post '/voice' do
+  @params = params
   if params['Digits']
     begin
       Dumbstore::Voice.get(params['Digits']).voice(params)
     rescue
-      "<Response><Say voice='woman'>I'm sorry. An app with the ID #{params['Digits']} could not be found. Peace out, boy.</Say></Response>"
+      erb :voice_error
     end
   else
     erb :voice_welcome
@@ -99,17 +100,18 @@ post '/voice' do
 end
 
 post '/text' do
+  @params = params
   if params['Body'].empty?
     erb :text_welcome
   else
     param_ary = params['Body'].split
-    app_id = param_ary.shift
+    @app_id = param_ary.shift
     params['Body'] = param_ary.join ' '
 
     begin
-      Dumbstore::Text.get(app_id).text(params)
+      Dumbstore::Text.get(@app_id).text(params)
     rescue
-      "<Response><Sms>I'm sorry, an app with the name #{app_id} could not be found. Stay in school.</Sms></Response>"
+      erb :text_error
     end
   end
 end
