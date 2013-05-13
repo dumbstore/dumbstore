@@ -89,7 +89,7 @@ end
 post '/voice' do
   if params['Digits']
     begin
-      Dumbstore::Voice.get(params['Digits']).voice
+      Dumbstore::Voice.get(params['Digits']).voice(params)
     rescue
       "<Response><Say voice='woman'>I'm sorry. An app with the ID #{params['Digits']} could not be found. Peace out, boy.</Say></Response>"
     end
