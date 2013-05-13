@@ -11,6 +11,7 @@ GEM
       multi_json
     geocoder (1.1.8)
     hashie (2.0.5)
+    json (1.7.7)
     multi_json (1.7.3)
     multipart-post (1.2.0)
     rack (1.5.2)
@@ -32,5 +33,6 @@ PLATFORMS
 DEPENDENCIES
   forecast_io
   geocoder
+  json (~> 1.7.7)
   sinatra
   thin
