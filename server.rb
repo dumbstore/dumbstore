@@ -1,20 +1,13 @@
 require 'sinatra'
 
 # dumblib
-class App
-  @@text_id = nil
-  def self.text_id *args
-    if args.empty?
-      @@text_id
-    else
-      @@text_id = args.first
-    end
-  end
-end
-
 module Dumbstore
   module Text
     @@apps = {}
+
+    def self.apps
+      @@apps
+    end
 
     def self.get id
       # TODO app not found
@@ -23,6 +16,17 @@ module Dumbstore
 
     def self.register_app id, app_class
       @@apps[id] = app_class
+    end
+  end
+end
+
+class App
+  @@text_id = nil
+  def self.text_id *args
+    if args.empty?
+      @@text_id
+    else
+      @@text_id = args.first
     end
   end
 end
@@ -37,13 +41,12 @@ class Weather < App
   end
 
   def text params
-    puts "the weather in #{params['Body']} is probably shitty!"
+    "<Response><Sms>The weather in #{params['Body']} is probably shitty!</Sms></Response>"
   end
 end
 
 # startup
 Dumbstore::Text.register_app Weather.text_id, Weather
-
 
 get '/' do
   erb :index
