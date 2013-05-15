@@ -39,28 +39,27 @@ module Dumbstore
 
   class App
     # TODO flatten text_id/voice_id defs
-    @@text_id = nil
+    @text_id = nil
     def self.text_id *args
       if args.empty?
-        @@text_id
+        @text_id
       else
-        @@text_id = args.first
+        @text_id = args.first
       end
     end
 
-    @@voice_id = nil
+    @voice_id = nil
     def self.voice_id *args
       if args.empty?
-        @@voice_id
+        @voice_id
       else
-        @@voice_id = args.first.to_touchtones
+        @voice_id = args.first.to_touchtones
       end
     end
 
     def self.register!
-      # TODO double registration
       Dumbstore::Text.register_app self.text_id, self if self.text_id
-      Dumbstore::Voice.register_app self.voice_id, self if self.voice_id
+      Dumbstore::Voice.register_app self.voice_id.to_touchtones, self if self.voice_id
     end
 
     def self.register_all!
