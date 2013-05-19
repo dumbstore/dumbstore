@@ -5,18 +5,22 @@ require 'open-uri'
 
 class Ltrain < Dumbstore::App
   text_id 'ltrain'
+  voice_id 'ltrain'
+
+  def fucked
+	page = Nokogiri::HTML(open('http://istheltrainfucked.com/'))
+		if page.css('h2').text.strip == 'nope'
+			return "It's not fucked"
+		else 
+			return "It's totally fucked"
+		end
+	end
 
 	def text params
+		"<Response><Sms>#{fucked()}</Sms></Response>"
+	end
 
-		page = Nokogiri::HTML(open('http://istheltrainfucked.com/'))
-		string = nil
-
-		if page.css('h2').text.strip == 'nope'
-			string = "It's not fucked"
-		else 
-			string = "It's totally fucked"
-		end
-
-	"<Response><Sms>#{string}</Sms></Response>"
+	def voice params
+		 "<Response><Say voice='woman'>#{fucked()}</Say></Response>"
 	end
 end
