@@ -15,6 +15,10 @@ get '/signup' do
   erb :signup
 end
 
+get '/apps' do
+  erb :apps
+end
+
 post '/newuser' do
   # write to database
   $db["users"].insert email: params[:email], phonenumber: params[:phonenumber], password: params[:password]
