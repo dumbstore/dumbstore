@@ -1,38 +1,45 @@
-require "sinatra"
-require "mongo"
-require "json"
+require 'sinatra'
+require_relative 'lib/dumb'
 
-DB = ENV['MONGOLAB_URI'] || "mongodb://heroku_app15360888:fl7s97tgbunbt7rtogpu0p2cij@ds061787.mongolab.com:61787/heroku_app15360888"
-uri = URI.parse(DB)
-conn = Mongo::Connection.from_uri(DB)
-$db = conn.db(uri.path.gsub(/^\//, ''))
+Dumbstore::App.register_all!
 
+# routes
 get '/' do
   erb :index
-end
-
-get '/signup' do
-  erb :signup
 end
 
 get '/apps' do
   erb :apps
 end
 
-post '/newuser' do
-  # write to database
-  $db["users"].insert email: params[:email], phonenumber: params[:phonenumber], password: params[:password]
-
-  redirect '/', 301
+post '/voice' do
+  @params = params
+  if params['Digits']
+    begin
+      Dumbstore::Voice.get(params['Digits']).voice(params)
+    rescue
+      # TODO differentiate errors
+      erb :voice_error
+    end
+  else
+    erb :voice_welcome
+  end
 end
 
-get '/user/:number' do
-  # read from database
-  user = $db["users"].find("phonenumber" => params[:number]).to_a.first
-
-  if user
-    { username: user['email'], password: user['password'] }.to_json
+post '/text' do
+  @params = params
+  if params['Body'].empty?
+    erb :text_welcome
   else
-    { error: "user not found" }.to_json
+    param_ary = params['Body'].split
+    @app_id = param_ary.shift
+    params['Body'] = param_ary.join ' '
+
+    begin
+      Dumbstore::Text.get(@app_id).text(params)
+    rescue
+      # TODO differentiate errors
+      erb :text_error
+    end
   end
 end

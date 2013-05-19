@@ -1,6 +1,8 @@
-source :rubygems
+source "https://rubygems.org"
 gem 'sinatra'
 gem 'thin'
-gem 'json'
-gem 'mongo'
-gem 'bson_ext'
+gem 'forecast_io'
+gem 'geocoder'
+gem 'nokogiri'
+gem 'hashie'
+gem 'json', '~> 1.7.7'
