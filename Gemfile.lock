@@ -3,6 +3,7 @@ GEM
   specs:
     daemons (1.1.9)
     eventmachine (1.0.3)
+    extlib (0.9.16)
     faraday (0.8.7)
       multipart-post (~> 1.1)
     forecast_io (1.1.0)
@@ -10,6 +11,9 @@ GEM
       hashie
       multi_json
     geocoder (1.1.8)
+    google_directions (0.1.5)
+      extlib (>= 0.9.15)
+      nokogiri (>= 1.4.1)
     hashie (2.0.5)
     json (1.7.7)
     multi_json (1.7.3)
@@ -35,6 +39,7 @@ PLATFORMS
 DEPENDENCIES
   forecast_io
   geocoder
+  google_directions
   hashie
   json (~> 1.7.7)
   nokogiri
