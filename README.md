@@ -13,6 +13,10 @@ To use a voice app, call the Dumb Store number. You will be prompted to enter th
 ### Text Apps
 Send a text message to the Dumb Store number with the ID of the app you want to use followed by any additional information the app might be expecting from you. For example, the weather app's ID is "weather" and it expects additional text to tell it where to forecast the weather. To get the weather in New York, you would text `weather new york` to the Dumb Store number. The app takes over from there.
 
+Stability
+----------
+This is barely an alpha version :) Use at your own risk. Submit any bugs to the issue tracker.
+
 Contributing
 ------------
 The Dumb Store uses the [GitHub's "Fork & Pull" Collaborative Model](https://help.github.com/articles/using-pull-requests) as its backbone.
@@ -71,6 +75,7 @@ The Dumb Store uses the [GitHub's "Fork & Pull" Collaborative Model](https://hel
 2. Push the changes to your GitHub account and take out a [pull request](https://help.github.com/articles/creating-a-pull-request).
 
 3. Discuss the submission in the comments thread of the pull request. Once it's approved, it gets pushed to the store and made available to everyone!
+
 
 Legal
 -----
