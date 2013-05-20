@@ -54,6 +54,7 @@ module Dumbstore
     end
     
     app_property :text_id, :voice_id
+    app_property :name, :author, :author_url, :url, :description
 
     def self.register!
       Dumbstore::Text.register_app self.text_id, self if self.text_id
