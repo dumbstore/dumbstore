@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Dumb Store</title>
+  <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
+</head>
+<body>
+  <%= erb :navbar %>
+   <div class="container">
+  <% n = 0 %>
+  <% @apps.each do |app| %>
+    <div class="well span5">
+      <h2><%= app.name %></h2>
+      <div class="pull-right" style="padding-left: 1em">
+        <% if app.text_id %><p><i class="icon-envelope"></i> <%= app.text_id %></p><% end %>
+        <% if app.voice_id %> <p><i class="icon-volume-up"></i> <%= app.voice_id %> (<%= app.voice_id.to_touchtones %>)</p> <% end %>
+      </div>
+      <p><%= app.description %></p>
+      <% if app.author_url and app.author %><p>by <em><a href="<%= app.author_url %>"><%= app.author %></a></em> </p><% end %>
+      <% if not app.author_url and app.author %><p>by <em><%= app.author %></em> </p><% end %>
+    </div>
+    <% n += 1; if n.even? %> <div class="clearfix"></div> <% end %>
+
+  <% end %>
+  </div>
+</body>
+</html>

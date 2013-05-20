@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Dumb Store</title>
+  <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
+</head>
+<body>
+  <%= erb :navbar %>
+  <div class="container">
+    <p>The Dumb Store uses the <a href="https://help.github.com/articles/using-pull-requests">GitHub's "Fork &amp; Pull" Collaborative Model</a> as its backbone.</p>
+
+    <h3>Fork and clone</h3>
+
+    <ol>
+    <li><p><a href="https://help.github.com/articles/fork-a-repo">Fork</a> the <a href="https://github.com/dumbstore/dumbstore">Dumb Store</a> repository to your own account.</p></li>
+    <li>
+    <p>Clone the repository to your computer so that you can start writing code in it.</p>
+
+    <pre><code>$ git clone git@github.com:yourname/dumbstore.git</code></pre>
+    </li>
+    </ol><h3>Implement your app</h3>
+
+    <ol>
+    <li>
+    <p>Create a new file in the <code>apps/</code> folder. Use a name that reflects the nature of your app. Currently The Dumb Store only supports Ruby apps.</p>
+
+    <pre><code>$ touch apps/my-app.rb</code></pre>
+    </li>
+    <li>
+    <p>A Dumb App is a Ruby class that inherits from <code>Dumbstore::App</code>. The name of the class must be a titlized verison of the file name. For example, <code>weather.rb</code> should have a class called <code>Weather</code>. A file called <code>local-listings.rb</code> should have a class called <code>LocalListings</code>.</p>
+
+    <div><pre>class Weather &lt; Dumbstore::App
+      author 'Ramsey Nasser'
+      author_url 'http://nas.sr/'
+      description 'My awesome weather app'
+
+      text_id 'weather'
+      def text params
+        current_weather = WeatherApi.get_weather
+        "&lt;Response&gt;&lt;Sms&gt;The weather is #{current_weather}&lt;/Sms&gt;&lt;/Response&gt;"
+      end
+
+      voice_id 'weather'
+      def voice params
+        current_weather = WeatherApi.get_weather
+        "&lt;Response&gt;&lt;Say&gt;The weather is #{current_weather}&lt;/Say&gt;&lt;/Response&gt;"
+      end
+    end</pre></div>
+
+    <p>An app can operate over text (SMS), voice, or both.</p>
+
+    <p>To support SMS, give your app a text ID as shown above and implement a <code>text</code> method that takes a single argument and returns a string. The <code>text</code> method will be executed when a user sends a message to the store with your app's text ID. The argument passed to the method is a hash of <a href="http://www.twilio.com/docs/api/twiml/sms/twilio_request">the original Twilio request</a>. In the above example, <code>params['Body']</code> would hold the value of the user's text message minus the app ID. The method must return a valid <a href="http://www.twilio.com/docs/api/twiml">TwiML document</a> in response to the user's text.</p>
+
+    <p>Supporting voice is the same, except you give your app a voice ID and implement a <code>voice</code> method. Its <a href="http://www.twilio.com/docs/api/twiml/twilio_request">parameters</a> are different.</p>
+
+    <p>You can implement whatever kind of logic you want in the <code>text</code> and <code>voice</code> methods. See the apps in the <a href="https://github.com/dumbstore/dumbstore/tree/master/apps"><code>apps/</code> folder</a> for reference.</p>
+
+    <p><strong>Do not use a text or voice ID of an existing app.</strong></p>
+    </li>
+    </ol><h3>Take out a pull request</h3>
+
+    <ol>
+    <li><p>Commit your changes to your local repository.</p></li>
+    <li><p>Push the changes to your GitHub account and take out a <a href="https://help.github.com/articles/creating-a-pull-request">pull request</a>.</p></li>
+    <li><p>Discuss the submission in the comments thread of the pull request. Once it's approved, it gets pushed to the store and made available to everyone!</p></li>
+    </ol>
+  </div>
+</body>
+</html>
