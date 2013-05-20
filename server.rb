@@ -8,6 +8,10 @@ get '/' do
   erb :index
 end
 
+get '/apps' do
+  erb :apps
+end
+
 post '/voice' do
   @params = params
   if params['Digits']

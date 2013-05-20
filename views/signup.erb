@@ -1,0 +1,71 @@
+<html>
+<head>
+  <title>Sign Up</title>
+  <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
+</head>
+
+
+<body>
+<div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="/">SMARTIFY</a>
+    <ul class="nav">
+      <li class = "active"><a href="/signup">Sign Up</a></li>
+      <li><a href="#magic"  data-toggle="modal">How It Works</a></li>
+      <li><a href="#about" data-toggle="modal">About</a></li>
+    </ul>
+  </div>
+</div>
+
+<div id="magic" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <img src= "/bootstrap/img/magic.gif" width= "100%" height = "100%">
+</div> 
+<div id="about" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-header">
+  <h4><p>About</p></div></h4>
+<div class="modal-body">
+  <p>We don't have smartphones. But we still want to check our email. </p>
+  <p>Smartify is a demonstration of what can be done using dumbphones. It's an exploration in resisting planned obsolescence and using current technology to its fullest capacity.
+  <p>The DumbStore will be an open platform for others to submit their dumbphone-compatible apps. </p>
+  <p>
+
+  <p>Final project for Chris Kairella's <a href="http://www.itp-redial.com/">Redial: Interactive Telephony</a> class at <a href="itp.nyu.edu">ITP</a>.</p>
+  <p>Created by <a href="https://twitter.com/allisonburtch">Allison Burtch</a> and <a href ="https://twitter.com/aladameh">Ramsey Nasser</a>.</p></div>
+</div> 
+
+
+  <div class="container">
+  <h1>Sign Up</h1>
+  <p>
+    <p>
+  <form action="/newuser" method="post">
+ <!--    <h3>Email</h3><input type="text" name="email">
+    <h3>Phone Number</h3><input type="text" name="phonenumber"> -->
+  <form class="form-horizontal">
+  <div class="control-group">
+    <label class="control-label" for="inputEmail"><h3>Email Address</h3>Only gmail for now.</label>
+    <div class="controls">
+      <input type="text" id="inputEmail" name="email" placeholder="Email Address">
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="inputPassword"><h3>Phone Number</h3>No dashes, parentheses or spaces.</label>
+
+    <div class="controls">
+      <input type="text" id="inputPassword" name="phonenumber" placeholder="Phone Number">
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+     
+      <button type="submit" class="btn">Submit</button>
+    </div>
+  </div>
+</form>
+
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="/bootstrap/js/bootstrap.min.js"></script>
+</div>
+</body>
+</html>
