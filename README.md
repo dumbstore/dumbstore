@@ -1,7 +1,7 @@
 The Dumb Store
 ==============
 
-The most inclusive mobile app platform in the world. Voice and text apps for dumbphones.
+The most inclusive mobile app platform in the world. Voice and text apps for [dumb phones](http://en.wikipedia.org/wiki/Feature_phone) (and smart phones, too!).
 
 Usage
 -----
