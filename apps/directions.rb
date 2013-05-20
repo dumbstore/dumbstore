@@ -1,7 +1,7 @@
 require 'nokogiri'
 require 'google_directions'
 
-class Dir < Dumbstore::App
+class Directions < Dumbstore::App
 	name 'Directions'
 	author 'Allison Burtch'
 	author_url 'http://allisonburtch.net/'
@@ -18,7 +18,7 @@ class Dir < Dumbstore::App
 
 		origin = message_body.split("to")[0]
 		destination = message_body.split("to")[1]
-		
+
 		directions = GoogleDirections.new(origin, destination).xml
 		distance = GoogleDirections.new(origin, destination).distance_in_miles.to_s
 
