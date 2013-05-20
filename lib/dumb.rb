@@ -38,24 +38,22 @@ module Dumbstore
   module Text; extend AppContainer end
 
   class App
-    # TODO flatten text_id/voice_id defs
-    @text_id = nil
-    def self.text_id *args
-      if args.empty?
-        @text_id
-      else
-        @text_id = args.first
+    def self.app_property *props
+      props.each do |prop|
+        module_eval <<-EVAL
+        @#{prop} = nil
+        def self.#{prop} *args
+          if args.empty?
+            @#{prop}
+          else
+            @#{prop} = args.first
+          end
+        end
+        EVAL
       end
     end
-
-    @voice_id = nil
-    def self.voice_id *args
-      if args.empty?
-        @voice_id
-      else
-        @voice_id = args.first.to_touchtones
-      end
-    end
+    
+    app_property :text_id, :voice_id
 
     def self.register!
       Dumbstore::Text.register_app self.text_id, self if self.text_id
