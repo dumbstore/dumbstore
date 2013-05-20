@@ -3,10 +3,31 @@
 <head>
   <title>Dumb Store</title>
   <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
   <%= erb :navbar %>
-   <div class="container">
+  <div class="container">
+      <div class="span10 well" style="width:820px">
+        <h2>Available Apps</h2>
+        <p>The following apps are available on the Dumb Store.</p>
+        <h3>Voice</h3>
+        <p>Each app's voice ID is indicated below by a <i class="icon-volume-up"></i></p>
+        <ol>
+          <li>Call <a href="tel:1-646-666-3536">+1 646-666-3536</a></li>
+          <li>Enter the ID of the app followed by the pound key.</li>
+        </ol>
+        <p>Ex. <code>37663#</code> (drone#) or <code>587246#</code> (ltrain#)</p>
+        <h3>SMS</h3>
+        <p>Each app's text ID is indicated below by a <i class="icon-envelope"></i></p>
+        <ol>
+          <li>Send a text message to <a href="tel:1-646-666-3536">+1 646-666-3536</a></li>
+          <li>The first word in the message must be the app's text ID.</li>
+          <li>The rest of the message must be any additional input the app may be expecting.
+        </ol>
+        <p>Ex. <code>wiki thylacine</code>, <code>weather new york city</code>, or <code>ltrain</code></p>
+      </div>
+
   <% n = 0 %>
   <% @apps.each do |app| %>
     <div class="well span5">
