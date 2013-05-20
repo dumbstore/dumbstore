@@ -37,13 +37,17 @@ The Dumb Store uses the [GitHub's "Fork & Pull" Collaborative Model](https://hel
 
   ```ruby
   class Weather < Dumbstore::App
-      text_ID 'weather'
+      author 'Ramsey Nasser'
+      author_url 'http://nas.sr/'
+      description 'My awesome weather app'
+
+      text_id 'weather'
       def text params
         current_weather = WeatherApi.get_weather
         "<Response><Sms>The weather is #{current_weather}</Sms></Response>"
       end
 
-      voice_ID 'weather'
+      voice_id 'weather'
       def voice params
         current_weather = WeatherApi.get_weather
         "<Response><Say>The weather is #{current_weather}</Say></Response>"
