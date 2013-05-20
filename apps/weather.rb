@@ -4,6 +4,13 @@ require 'forecast_io'
 require 'geocoder'
 
 class Weather < Dumbstore::App
+  name 'Weather'
+  author 'Allison Burtch'
+  author_url 'http://allisonburtch.net/'
+  description <<-DESCRIPTION
+  Forecasts the weather at the given location. For example, text <code>weather new york</code> to get the weather in New York.
+  DESCRIPTION
+
   text_id 'weather'
 
   def text params
