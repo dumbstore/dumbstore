@@ -70,4 +70,4 @@ The Dumb Store uses the [GitHub's "Fork & Pull" Collaborative Model](https://hel
 
 Legal
 -----
-Copyright © 2013 Allison Burtch and Ramsey Nasser. Provided under the MIT License.
+Copyright © 2013 Allison Burtch and Ramsey Nasser. Provided under the [MIT License](https://github.com/dumbstore/dumbstore/blob/master/LICENSE).
