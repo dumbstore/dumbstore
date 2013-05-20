@@ -4,13 +4,10 @@ require_relative 'lib/dumb'
 Dumbstore::App.register_all!
 
 # routes
-get '/' do
-  erb :index
-end
-
-get '/apps' do
-  erb :apps
-end
+get('/') { erb :index }
+get('/apps') { @apps = Dumbstore::Text.apps.merge(Dumbstore::Voice.apps).values.uniq; erb :apps }
+get('/about') { erb :about }
+get('/documentation') { erb :documentation }
 
 post '/voice' do
   @params = params
