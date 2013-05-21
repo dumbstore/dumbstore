@@ -20,7 +20,7 @@ class Wiki < Dumbstore::App
 	wikishit = page.raw_data['query']['pages'].first.last['revisions'].first['*']
 
 	sanitized = Wikipedia::Page.sanitize(wikishit)
-	if sanitized =~ /^#REDIRECT/
+	if sanitized =~ /^#REDIRECT/i
 		message_body = page.links.first
 		page = Wikipedia.find("#{message_body}")
 		wikishit = page.raw_data['query']['pages'].first.last['revisions'].first['*']
