@@ -67,6 +67,8 @@ The Dumb Store uses the [GitHub's "Fork & Pull" Collaborative Model](https://hel
 
   You can implement whatever kind of logic you want in the `text` and `voice` methods. See the apps in the [`apps/` folder](https://github.com/dumbstore/dumbstore/tree/master/apps) for reference.
 
+  To test your app, try `curl localhost:5000/text -d Body=APPNAMEHERE\ test\ text`.
+
   **Do not use a text or voice ID of an existing app.**
 
 ### Take out a pull request
