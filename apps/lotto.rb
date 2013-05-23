@@ -1,4 +1,5 @@
 class Lotto < Dumbstore::App
+  name 'Powerball'
   author 'Jordan Scales'
   author_url 'http://jordanscales.com'
   description 'Generates Powerball Numbers'
