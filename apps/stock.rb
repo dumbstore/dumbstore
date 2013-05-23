@@ -1,8 +1,5 @@
-require 'net/http'
-require 'rexml/document'
-
 class Stock < Dumbstore::App
-	name 'Stock Prices'
+	name 'Stocks Prices'
 	author 'Antoine de Chevigne'
 	author_url 'http://github.com/antoinedc'
 	description <<-DESCRIPTION
@@ -17,7 +14,6 @@ class Stock < Dumbstore::App
 		symb = params['Body']
 		url = "http://download.finance.yahoo.com/d/quotes.json?f=l1&s=" + symb
 		price = Net::HTTP.get_response(URI.parse(url)).body.strip
-		p price
 		if price == "0.00"
 			"Symbol not found."
 		else
