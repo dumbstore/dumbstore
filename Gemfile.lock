@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     daemons (1.1.9)
+    dicechucker (0.8.0)
     eventmachine (1.0.3)
     extlib (0.9.16)
     faraday (0.8.7)
@@ -37,6 +38,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dicechucker
   forecast_io
   geocoder
   google_directions
