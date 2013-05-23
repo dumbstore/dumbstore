@@ -29,7 +29,7 @@ post '/text' do
     erb :text_welcome
   else
     param_ary = params['Body'].split
-    @app_id = param_ary.shift
+    @app_id = param_ary.shift.downcase 
     params['Body'] = param_ary.join ' '
 
     begin
