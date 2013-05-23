@@ -1,3 +1,5 @@
+require 'net/http'
+
 class Stock < Dumbstore::App
 	name 'Stocks Prices'
 	author 'Antoine de Chevigne'
