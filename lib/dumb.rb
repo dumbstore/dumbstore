@@ -18,19 +18,18 @@ end
 
 module Dumbstore
   module AppContainer
-    @@apps = {}
-
     def apps
-      @@apps
+      @apps
     end
 
     def get id
-      raise "AppNotFoundError" unless @@apps[id]
-      @@apps[id].new
+      raise "AppNotFoundError" unless @apps[id]
+      @apps[id].new
     end
 
     def register_app id, app_class
-      @@apps[id] = app_class
+      @apps ||= {}
+      @apps[id] = app_class
     end
   end
 
