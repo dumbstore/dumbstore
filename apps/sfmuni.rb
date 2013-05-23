@@ -6,7 +6,9 @@ class Sfmuni < Dumbstore::App
 	author 'Antoine de Chevigne'
 	author_url 'github.com/antoinedc'
 	description <<-DESCRIPTION
-	Get the next MUNI schedule.
+	Get the next San Francsico MUNI schedule.<br />
+	Format: <code>sfmuni [line] [stop]</code><br />
+	Example: <code>sfmuni 71 4941</code>
 	DESCRIPTION
 	text_id 'sfmuni'
 	voice_id 'sfmuni'
