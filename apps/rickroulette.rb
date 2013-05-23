@@ -19,7 +19,7 @@ class Rickroulette < Dumbstore::App
       "<Response><Say voice='woman'>Click.</Say></Response>"
     else
       # bang!
-      "<Response><Play>http://www.davidhuerta.com/lulz/rickroll.mp3</Play></Response>"
+      "<Response><Play>http://www.davidhuerta.me/lulz/rickroll.mp3</Play></Response>"
     end
   end
 end
