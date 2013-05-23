@@ -6,7 +6,7 @@ class Rickroulette < Dumbstore::App
   Call Dumbstore, enter the rickroulette for the ID. Hold your phone up to your head for a 1 in 6 chance of getting rickrolled'
   DESCRIPTION
 
-  voice_id 'rickroulette'
+  voice_id 'rick'
   def voice params
     chambers = Array.new(6)
     # load one in
