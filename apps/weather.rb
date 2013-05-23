@@ -8,7 +8,7 @@ class Weather < Dumbstore::App
   author 'Allison Burtch'
   author_url 'http://allisonburtch.net/'
   description <<-DESCRIPTION
-  Forecasts the weather at the given location. For example, text <code>weather new york</code> to get the weather in New York.
+  Forecasts the weather at the given location. For example, text <code>weather 11205</code> or <code>weather Brooklyn, NY</code> to get the weather in Brooklyn.
   DESCRIPTION
 
   text_id 'weather'

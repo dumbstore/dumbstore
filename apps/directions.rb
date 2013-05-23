@@ -6,7 +6,7 @@ class Directions < Dumbstore::App
 	author 'Allison Burtch'
 	author_url 'http://allisonburtch.net/'
 	description <<-DESCRIPTION 
-	Google maps directions. Text 'dir'. In the body of your text, put your origin to destination. Ex: <code>dir 721 Broadway to Eyebeam New York, NY</code>
+	Google maps directions. Text 'dir'. In the body of your text, put your origin to destination. It needs city,st for both. Ex: <code>dir 721 Broadway to Eyebeam New York, NY</code>
 	DESCRIPTION
 
 	text_id 'dir'
