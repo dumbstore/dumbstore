@@ -4,7 +4,7 @@ require 'rexml/document'
 class Sfmuni < Dumbstore::App
 	name 'San Francisco MUNI schedules'
 	author 'Antoine de Chevigne'
-	author_url 'github.com/antoinedc'
+	author_url 'http://github.com/antoinedc'
 	description <<-DESCRIPTION
 	Get the next San Francsico MUNI schedule.<br />
 	Format: <code>sfmuni [line] [stop]</code><br />
