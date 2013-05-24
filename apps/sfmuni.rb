@@ -20,7 +20,6 @@ class Sfmuni < Dumbstore::App
 		if stop.length > 4
 			stop = stop[1, stop.length-1]
 		end
-		p stop
 		url = "http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&r=" + line.to_s + "&s=" + stop.to_s + "&useShortTitles=true"
 		xml_data = Net::HTTP.get_response(URI.parse(url)).body
 
