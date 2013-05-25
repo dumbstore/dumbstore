@@ -14,20 +14,21 @@ class News < Dumbstore::App
 	Each headline is followed by the source<br />
 	DESCRIPTION
 	text_id 'news'
-	voice_id 'news'
 
 	def headlines params
 		message_body = params['Body']
-		params = message_body.split(" ")
+		message_words = message_body.split(" ")
 		loc = "en"
 		q = ""
-		if params.count > 0
-			loc = params[0]
+		if message_words.count > 0
+			q = message_words[0]
 		end
-		if params.count > 1
-			q = params[1]
+		if message_words.count > 1
+			loc = message_words[0]
+			q = message_words[1]
 		end
 		url = "http://news.google.com/news/feeds?pz=1&cf=all&output=rss&ned=" + loc +"&hl=" + loc + "&q=" + q
+
 		xml_data = Net::HTTP.get_response(URI.parse(url)).body
 
 		doc = REXML::Document.new(xml_data)
@@ -35,14 +36,11 @@ class News < Dumbstore::App
 		doc.elements.each('rss/channel/item/title') do |el|
 			headlines << el.text
 		end
-		headlines.join("\r\n")
+
+		headlines.join("\n")
 	end
 
 	def text params
-		"<Response><Sms>#{headlines(params)}</Sms></Response>"
-	end
-
-	def voice params
-		"<Response><Say voice='woman'>#{headlines(params)}</Say></Response>"
+		headlines(params).to_sms
 	end
 end
