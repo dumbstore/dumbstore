@@ -11,7 +11,6 @@ class Tweets < Dumbstore::App
 	Example: <code>tweets twitter</code>
 	DESCRIPTION
 	text_id 'tweets'
-	voice_id 'tweets'
 
 	def tweets params
 		username = params['Body']
@@ -27,9 +26,5 @@ class Tweets < Dumbstore::App
 
 	def text params
 		"<Response><Sms>#{tweets(params)}</Sms></Response>"
-	end
-
-	def voice params
-		"<Response><Say voice='woman'>#{tweets(params)}</Say></Response>"
 	end
 end
