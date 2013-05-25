@@ -14,7 +14,7 @@ class CurrencyConverter < Dumbstore::App
 	def text params
 		message_body = params['Body']
         split_arr = message_body.split('to')
-        return "<Response><Sms>Invalid Request!</Sms></Response>" if split_arr.nil?
+        return "Invalid Request!".to_sms if split_arr.nil?
 
 		src_currency_code = message_body.split('to')[0]
 		dest_currency_code = message_body.split('to')[1]
@@ -25,11 +25,11 @@ class CurrencyConverter < Dumbstore::App
         doc = Nokogiri::HTML(open(url))
 
         result_nodes = doc.css('#currency_converter_result') 
-        return "<Response><Sms>Failed to convert!</Sms></Response>" if (result_nodes.nil? or result_nodes.length < 1)
+        return "Failed to convert!".to_sms if (result_nodes.nil? or result_nodes.length < 1)
 
         result = result_nodes[0].content
         result.strip!
-        return "<Response><Sms>" + result + "</Sms></Response>" 
+        return result.to_sms
     end
 end
         
