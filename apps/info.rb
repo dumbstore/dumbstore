@@ -1,3 +1,5 @@
+require 'nokogiri'
+
 class Info < Dumbstore::App
   name 'Info'
   author 'Ryan Yeske'
@@ -8,7 +10,7 @@ class Info < Dumbstore::App
 
   def info_for id
     app = Dumbstore::Text.apps[id]
-    app ? app.description.strip : "No info for #{id}"
+    app ? Nokogiri::HTML(app.description.strip).text : "No info for #{id}"
   end
 
   def app_ids
