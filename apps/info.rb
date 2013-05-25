@@ -1,14 +1,14 @@
 class Info < Dumbstore::App
-  name 'info'
+  name 'Info'
   author 'Ryan Yeske'
   author_url 'http://ryanyeske.com/'
   description <<-DESCRIPTION
-  Get info for a dumbstore app. Text 'info' followed by the the name of the app.
+  Get info for dumbstore apps. Text 'info' for a list of all available apps. Text 'info' followed by the the name of the app to get that app's description.
   DESCRIPTION
 
   def info_for id
     app = Dumbstore::Text.apps[id]
-    app ? app.description.strip : "no info for #{id}"
+    app ? app.description.strip : "No info for #{id}"
   end
 
   def app_ids
@@ -19,7 +19,7 @@ class Info < Dumbstore::App
     id = params['Body']
     
     if id.empty?
-      "#{Info.description.strip}\nApps: #{app_ids.join(' ')}" 
+      "Available Apps: #{app_ids.join(', ')}" 
     else
       info_for id
     end
