@@ -50,6 +50,12 @@ class String
       end
     end.text
   end
+
+  def to_voice voice='woman'
+    Twilio::TwiML::Response.new do |r|
+      r.Say self, :voice => voice
+    end.text
+  end
 end
 
 module Dumbstore
