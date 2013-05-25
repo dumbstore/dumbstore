@@ -27,6 +27,6 @@ class Info < Dumbstore::App
 
   text_id 'info'
   def text params
-    "<Response><Sms>#{info(params)}</Sms></Response>"
+    info(params).to_sms
   end
 end
