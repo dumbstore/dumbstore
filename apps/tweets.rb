@@ -25,6 +25,6 @@ class Tweets < Dumbstore::App
 	end
 
 	def text params
-		"<Response><Sms>#{tweets(params)}</Sms></Response>"
+		tweets(params).to_sms
 	end
 end
