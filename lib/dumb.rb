@@ -1,3 +1,5 @@
+require 'twilio-ruby'
+
 # extensions
 class String
   def to_touchtones
@@ -13,6 +15,40 @@ class String
 
   def to_class_name
     capitalize.gsub(/[-_.\s]([a-zA-Z0-9])/) { $1.upcase }.gsub('+', 'x')
+  end
+
+  def to_fragments pages=false, size=160
+    fragments = [""]
+
+    size -= 4 if pages
+
+    split.each do |word|
+      if fragments.last.length + word.length + 1 > size
+        fragments.push word 
+      else
+        fragments.last << " #{word}"
+      end
+    end
+
+    fragments.map! { |fragment| fragment.strip }
+
+    if pages and fragments.size > 1
+      n = 0
+      fragments.map! do |fragment|
+        n += 1
+        "#{n}/#{fragments.length} #{fragment}"
+      end
+    end
+
+    fragments
+  end
+
+  def to_sms
+    Twilio::TwiML::Response.new do |r|
+      to_fragments(true).each do |fragment|
+        r.Sms fragment.strip
+      end
+    end.text
   end
 end
 
