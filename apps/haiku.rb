@@ -13,11 +13,11 @@ class Haiku < Dumbstore::App
   voice_id 'haiku'
 
   def text(params)
-    "<Response><Sms>#{haiku}</Sms></Response>"
+    haiku.to_sms
   end
 
   def voice params
-    "<Response><Say voice='woman'>#{haiku}</Say></Response>"
+    haiku.to_voice
   end
 
   private
