@@ -7,7 +7,7 @@ class News < Dumbstore::App
 	author_url 'http://github.com/antoinedc'
 	description <<-DESCRIPTION
 	Get the latest headlines from Google News !<br />
-	Format: <code>news [country](opt) [query]<(opt)/code><br />
+	Format: <code>news [country](opt) [query](opt)</code><br />
 	Example: <code>news fr lmpt</code>
 	If no country is specified, it will be US news, this parameter is a two letter country code<br />
 	You can use the query parameter to get the headlines about a particular topic<br />
