@@ -10,7 +10,6 @@ class Stock < Dumbstore::App
 	Example: <code>stock YHOO</code>
 	DESCRIPTION
 	text_id 'stock'
-	voice_id 'stock'
 
 	def stock params
 		symb = params['Body']
@@ -26,9 +25,5 @@ class Stock < Dumbstore::App
 
 	def text params
 		"<Response><Sms>#{stock(params)}</Sms></Response>"
-	end
-
-	def voice params
-		"<Response><Say voice='woman'>#{stock(params)}</Say></Response>"
 	end
 end
