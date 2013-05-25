@@ -8,7 +8,7 @@ class Tweets < Dumbstore::App
 	description <<-DESCRIPTION
 	Get the latest tweets from a user.<br />
 	Format: <code>tweets [username]</code><br />
-	Example: <code>tweets twitter</code>
+	Example: <code>tweets irl</code>
 	DESCRIPTION
 	text_id 'tweets'
 
