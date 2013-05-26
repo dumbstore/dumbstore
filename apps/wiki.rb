@@ -11,34 +11,22 @@ class Wiki < Dumbstore::App
 	text_id 'wiki'
 
 	def text params
-  	fragments = [""]
-  	max_size = 160
-	message_body = params['Body']
+		message_body = params['Body']
 
-	page = Wikipedia.find("#{message_body}")
+		page = Wikipedia.find(message_body)
 
-	wikishit = page.raw_data['query']['pages'].first.last['revisions'].first['*']
+		return "Article #{message_body} not found!".to_sms unless Wikipedia.find(message_body).raw_data['query']['pages'].first.last['missing'].nil?
 
-	sanitized = Wikipedia::Page.sanitize(wikishit)
-	if sanitized =~ /^#REDIRECT/i
-		message_body = page.links.first
-		page = Wikipedia.find("#{message_body}")
 		wikishit = page.raw_data['query']['pages'].first.last['revisions'].first['*']
+
 		sanitized = Wikipedia::Page.sanitize(wikishit)
-
-	end
-
-	clean = Nokogiri::HTML(sanitized).text
-	article = clean.split(/[^A-Z]\. /)
-	wikistring = article[0..2].join(". ")+"."
-	wikistring.split.each do |word|
-			if fragments.last.length + word.length + 1 > max_size
-				fragments.push word 
-			else
-				fragments.last << " #{word}"
-			end
+		if sanitized =~ /^#REDIRECT/i
+			message_body = page.links.first
+			page = Wikipedia.find("#{message_body}")
+			wikishit = page.raw_data['query']['pages'].first.last['revisions'].first['*']
+			sanitized = Wikipedia::Page.sanitize(wikishit)
 		end
 
-    "<Response>#{fragments.map { |frags| "<Sms>#{frags.strip}</Sms>" }.join}</Response>"
+		Nokogiri::HTML(sanitized).text.to_sms
   end
 end
