@@ -59,13 +59,14 @@ class String
 end
 
 module Dumbstore
+  class AppNotFoundError < RuntimeError; end
   module AppContainer
     def apps
       @apps
     end
 
     def get id
-      raise "AppNotFoundError" unless @apps[id]
+      raise AppNotFoundError unless @apps[id]
       @apps[id].new
     end
 

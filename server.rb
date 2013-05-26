@@ -34,9 +34,11 @@ post '/text' do
 
     begin
       Dumbstore::Text.get(@app_id).text(params)
-    rescue
+    rescue Dumbstore::AppNotFoundError => e
       # TODO differentiate errors
-      erb :text_error
+      erb :text_app_not_found
+    rescue
+      erb :text_app_crashed
     end
   end
 end
