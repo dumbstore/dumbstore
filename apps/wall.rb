@@ -11,6 +11,6 @@ class Wall < Dumbstore::App
   text_id 'wall'
   def text params
     @@tag = params['Body'] unless params['Body'].empty?
-    "<Response><Sms>#{@@tag}</Sms></Response>"
+    @@tag.to_sms
   end
 end
