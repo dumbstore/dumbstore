@@ -17,6 +17,9 @@ class Sfmuni < Dumbstore::App
 		message_body = params['Body']
 		line = message_body.split(" ")[0]
 		stop = message_body.split(" ")[1]
+		if stop.length > 4
+			stop = stop[1, stop.length-1]
+		end
 		url = "http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=sf-muni&r=" + line.to_s + "&s=" + stop.to_s + "&useShortTitles=true"
 		xml_data = Net::HTTP.get_response(URI.parse(url)).body
 

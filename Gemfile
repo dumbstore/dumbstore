@@ -1,4 +1,5 @@
 source "https://rubygems.org"
+gem 'twilio-ruby'
 gem 'sinatra'
 gem 'thin'
 gem 'forecast_io'
