@@ -8,7 +8,7 @@ class Ltrain < Dumbstore::App
 	author 'Lauren McCarthy'
 	author_url 'http://lauren-mccarthy.com/'
 	description <<-DESCRIPTION
-	Turns your dumbphone into a flashlight.
+	Turns your dumbphone into a flashlight. Note: this only works if your phone lights up on sms receive.
 	DESCRIPTION
 
   text_id 'flashlight'
@@ -18,7 +18,7 @@ class Ltrain < Dumbstore::App
       Dumbstore.twilio.sms.messages.create(
         from:Dumbstore::NUMBER,
         to:params['From']
-        body:" note: this only works if your phone lights up on sms receive "
+        body:" flash "
       )
       sleep 10
     end
