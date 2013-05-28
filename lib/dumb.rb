@@ -79,6 +79,11 @@ module Dumbstore
   module Voice; extend AppContainer end
   module Text; extend AppContainer end
 
+  def self.twilio
+    @@twilio_client ||= Twilio::REST::Client.new ENV['DUMBSTORE_ACCOUNT_SID'], ENV['DUMBSTORE_AUTH_TOKEN']
+    @@twilio_client.account
+  end
+
   class App
     def self.app_property *props
       props.each do |prop|
