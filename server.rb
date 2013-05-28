@@ -13,7 +13,7 @@ post '/voice' do
   @params = params
   if params['Digits']
     begin
-      Dumbstore::Voice.get(params['Digits']).voice(params)
+      Dumbstore::Voice.get(params['Digits']).voice(params) || Twilio::TwiML::Response.new.text
     rescue
       # TODO differentiate errors
       erb :voice_error
@@ -33,7 +33,7 @@ post '/text' do
     params['Body'] = param_ary.join ' '
 
     begin
-      Dumbstore::Text.get(@app_id).text(params)
+      Dumbstore::Text.get(@app_id).text(params) || Twilio::TwiML::Response.new.text
     rescue Dumbstore::AppNotFoundError => e
       # TODO differentiate errors
       erb :text_app_not_found
