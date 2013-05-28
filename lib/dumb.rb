@@ -79,6 +79,8 @@ module Dumbstore
   module Voice; extend AppContainer end
   module Text; extend AppContainer end
 
+  NUMBER = "+16466663536"
+
   def self.twilio
     @@twilio_client ||= Twilio::REST::Client.new ENV['DUMBSTORE_ACCOUNT_SID'], ENV['DUMBSTORE_AUTH_TOKEN']
     @@twilio_client.account
