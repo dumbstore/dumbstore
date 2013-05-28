@@ -66,11 +66,38 @@ The Dumb Store uses the [GitHub's "Fork & Pull" Collaborative Model](https://hel
   Supporting voice is the same, except you give your app a voice ID and implement a `voice` method. Its [parameters](http://www.twilio.com/docs/api/twiml/twilio_request) are different.
 
   You can implement whatever kind of logic you want in the `text` and `voice` methods. See the apps in the [`apps/` folder](https://github.com/dumbstore/dumbstore/tree/master/apps) for reference.
-
-  To test your app, try `curl localhost:5000/text -d Body=APPNAMEHERE\ test\ text`.
-
+  
   **Do not use a text or voice ID of an existing app.**
 
+#### Testing
+
+Testing your apps locally is currently very janky. For now, try `curl localhost:5000/text -d Body=APPNAMEHERE\ test\ text` after you've launched the server. We are actively working on a better local testing workflow.
+
+#### Advanced
+
+For functionality not exposed by our APIs, an authenticated Twilio client object is always available at `Dumbstore.twilio`. This will allow you to do anything [the Twilio gem](https://github.com/twilio/twilio-ruby) supports. `Dumbstore.twilio` is a reference to `@client.account`, so to send an SMS manually you could do this
+
+```ruby
+Dumbstore.twilio.sms.messages.create(
+  :from => Dumbstore::NUMBER,
+  :to => '+16105557069',
+  :body => 'Hey there!'
+)
+```
+
+You also might want to skip the Dumbstore's automatic response mechanism when making more advanced apps. Return `nil` from a `text` or `voice` method to avoid responding.
+
+```ruby
+def voice params
+  Dumbstore.twilio.sms.messages.create(
+    :from => Dumbstore::NUMBER,
+    :to => 'params["From"]',
+    :body => 'Responding to a call with a text!'
+  )
+
+  nil
+end
+```
 ### Take out a pull request
 1. Commit your changes to your local repository.
 
