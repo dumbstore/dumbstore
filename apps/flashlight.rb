@@ -20,7 +20,7 @@ class Ltrain < Dumbstore::App
         to:params['From']
         body:" flash "
       )
-      sleep 10
+      sleep 5
     end
     
     nil
