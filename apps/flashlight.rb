@@ -1,9 +1,6 @@
 # encoding: utf-8
 
-require 'nokogiri'
-require 'open-uri'
-
-class Ltrain < Dumbstore::App
+class Flashlight < Dumbstore::App
 	name 'Flashlight'
 	author 'Lauren McCarthy'
 	author_url 'http://lauren-mccarthy.com/'
