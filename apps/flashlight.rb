@@ -14,7 +14,7 @@ class Flashlight < Dumbstore::App
     10.times do
       Dumbstore.twilio.sms.messages.create(
         from:Dumbstore::NUMBER,
-        to:params['From']
+        to:params['From'],
         body:" flash "
       )
       sleep 5
