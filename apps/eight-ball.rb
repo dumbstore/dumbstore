@@ -11,7 +11,7 @@ class EightBall < Dumbstore::App
 	def text params
 		message_body = params['Body']
 		
-		if message_body == nil
+		if message_body == ""
 			error = "Try again, this time with feeling (and words)"
 			error.to_sms
 		end	
@@ -26,7 +26,7 @@ class EightBall < Dumbstore::App
 			"Signs point to yes", "Reply hazy, try again", "Ask again later", "Better not tell you now",
 			"Cannot predict now", "Concentrate and ask again", "Don't count on it", "My reply is no", 
 			"My sources say no", "Outlook not so good", "Very doubtful", "No way, man", "Boat.", 
-			"Do you kiss your mother with that mouth?"]
+			"Do you kiss your mother with that mouth?", "Indubitably"]
 		#mix em' up!
 		fortune.shuffle!
 		
