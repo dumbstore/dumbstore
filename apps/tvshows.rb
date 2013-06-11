@@ -10,7 +10,7 @@ class Tvshows < Dumbstore::App
 
   text_id 'shows'
   def text params
-    doc = Nokogiri::HTML(open("http://www.sidereel.com/calendar"))
+    doc = Nokogiri::HTML(open("http://www.sidereel.com/calendar?utm_medium=sms&utm_source=dumbstore"))
     titles = doc.css(".current .show-title").map{|n| n.inner_text }
 
     response = "New episodes for #{Date.today.strftime}:  " + titles.join(",  ")
