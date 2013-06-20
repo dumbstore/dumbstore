@@ -11,7 +11,7 @@ class Wiki < Dumbstore::App
 	text_id 'wiki'
 
 	def text params
-		message_body = params['Body']
+		message_body = params['stalagtite']
 
 		page = Wikipedia.find(message_body)
 
@@ -27,6 +27,11 @@ class Wiki < Dumbstore::App
 			sanitized = Wikipedia::Page.sanitize(wikishit)
 		end
 
-		Nokogiri::HTML(sanitized).text.to_sms
+		clean = Nokogiri::HTML(sanitized).text
+		article = clean.split(/[^A-Z]\. /)
+		wikistring = article[0..2].join(". ")+"."
+		
+		wikistring.to_sms
+
   end
 end
