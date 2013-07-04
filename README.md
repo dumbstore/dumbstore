@@ -8,10 +8,10 @@ Usage
 Dumb apps can be used over voice and text. Call or text +1 646-666-3536 to access any of the apps available on the store.
 
 ### Voice Apps
-To use a voice app, call the Dumb Store number. You will be prompted to enter the ID of the app you want to use followed by the pound key (#). For example, the L Train app's ID is "ltrain", so enter 587245 followed by the pound key. The app takes over from there.
+To use a voice app, call the Dumb Store number. You will be prompted to enter the ID of the app you want to use followed by the pound key (#). For example, the Drone app's ID is "drone", so enter 37663 followed by the pound key. The app takes over from there.
 
 ### Text Apps
-Send a text message to the Dumb Store number with the ID of the app you want to use followed by any additional information the app might be expecting from you. For example, the weather app's ID is "weather" and it expects additional text to tell it where to forecast the weather. To get the weather in New York, you would text `weather new york` to the Dumb Store number. The app takes over from there.
+Send a text message to the Dumb Store number with the ID of the app you want to use followed by any additional information the app might be expecting from you. For example, the weather app's ID is "weather" and it expects additional text to tell it where to forecast the weather. To get the weather in Brooklyn, you would text `weather 11205` to the Dumb Store number. The app takes over from there.
 
 Stability
 ----------
