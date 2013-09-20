@@ -44,6 +44,6 @@ class Drone < Dumbstore::App
 
     message += "Rest in peace. " unless data['deaths'].empty? or data['deaths'] == '0'
 
-    "<Response><Say voice='woman'>#{message}</Say></Response>"
+    message.to_voice
   end
 end
