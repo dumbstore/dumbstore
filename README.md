@@ -79,7 +79,7 @@ For functionality not exposed by our APIs, an authenticated Twilio client object
 
 ```ruby
 Dumbstore.twilio.sms.messages.create(
-  :from => Dumbstore::NUMBER,
+  :from => Dumbstore.phone_number,
   :to => '+16105557069',
   :body => 'Hey there!'
 )
@@ -90,7 +90,7 @@ You also might want to skip the Dumbstore's automatic response mechanism when ma
 ```ruby
 def voice params
   Dumbstore.twilio.sms.messages.create(
-    :from => Dumbstore::NUMBER,
+    :from => Dumbstore.phone_number,
     :to => 'params["From"]',
     :body => 'Responding to a call with a text!'
   )

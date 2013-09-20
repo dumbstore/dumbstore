@@ -79,11 +79,32 @@ module Dumbstore
   module Voice; extend AppContainer end
   module Text; extend AppContainer end
 
-  NUMBER = "+16466663536"
+  class <<self
+    attr_accessor :account_sid, :auth_token
+  end
+
+  @phone_number = nil
+
+  def self.phone_number
+    if @phone_number.nil?
+      Dumbstore.twilio.incoming_phone_numbers.list.each do |number|
+        smsid = Dumbstore.twilio.incoming_phone_numbers.get(number.sid).sms_application_sid
+        voiceid = Dumbstore.twilio.incoming_phone_numbers.get(number.sid).voice_application_sid
+
+        if Dumbstore.twilio.applications.get(smsid).friendly_name == Dumbstore.twilio_app_name and
+          Dumbstore.twilio.applications.get(voiceid).friendly_name == Dumbstore.twilio_app_name
+          @phone_number = Dumbstore.twilio.incoming_phone_numbers.get(number.sid).phone_number
+          break
+        end
+      end
+    end
+
+    @phone_number
+  end
 
   def self.twilio
-    @@twilio_client ||= Twilio::REST::Client.new ENV['DUMBSTORE_ACCOUNT_SID'], ENV['DUMBSTORE_AUTH_TOKEN']
-    @@twilio_client.account
+    @twilio_client ||= Twilio::REST::Client.new self.account_sid, self.auth_token
+    @twilio_client.account
   end
 
   class App
