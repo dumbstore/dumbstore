@@ -11,7 +11,7 @@ class Wiki < Dumbstore::App
 	text_id 'wiki'
 
 	def text params
-		message_body = params['stalagtite']
+		message_body = params['Body']
 
 		page = Wikipedia.find(message_body)
 
