@@ -14,7 +14,7 @@ class Asciigram < Dumbstore::App
     #ascii_art.push("derp\n    herp\nderp\n");
     ascii_art.push(" |\\-----/|
  | o   o | 
-&gt;|=&gt;v&lt;=|&lt;
+ |=&gt;v&lt;=|
  \\   ^   /
   =(M)=
  /       \\
