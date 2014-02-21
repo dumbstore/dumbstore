@@ -11,13 +11,13 @@ class Asciigram < Dumbstore::App
   def text params
     ascii_art = Array.new
     # Mu the cat
-    ascii_art.push(" .       . \n
- |\-----/| \n
- | o   o | \n
+    ascii_art.push(" .&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;. \n
+ |\\-----/| \n
+ | o&nbsp;&nbsp;&nbsp;o | \n
 >|==>v<==|<\n
- \   ^   / \n
-  ==(M)==  \n
- /       \ \n
+ \\&nbsp;&nbsp;&nbsp;^&nbsp;&nbsp;&nbsp;/ \n
+ &nbsp;==(M)==  \n
+ /       \\ \n
 ")
     # Rando pug
     ascii_art.push("  __________  \n
@@ -55,7 +55,7 @@ o \\ o |* |\n
       / /  \n
 ")
 
-    ascii_art.shuffle!
+    ##ascii_art.shuffle!
     ascii_art.first.to_sms
   end
 end
