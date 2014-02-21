@@ -57,6 +57,6 @@ o \\ o |* |\n
 
     ##ascii_art.shuffle!
     ##ascii_art.first.to_sms
-    "<Response><Sms>#{ascii_art.first}</Sms></Response>"
+    return "<Response><Sms>#{ascii_art.first}</Sms></Response>"
   end
 end
