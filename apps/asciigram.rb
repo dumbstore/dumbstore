@@ -12,12 +12,11 @@ class Asciigram < Dumbstore::App
     ascii_art = Array.new
     # Mu the cat
     #ascii_art.push("derp\n    herp\nderp\n");
-    ascii_art.push(" .       .
- |\\-----/|
+    ascii_art.push(" |\\-----/|
  | o   o | 
-&gt;|==&gt;v&lt;==|&lt;
+&gt;|=&gt;v&lt;=|&lt;
  \\   ^   /
-  ==(M)==  
+  =(M)=
  /       \\
 ")
     # Rando pug
