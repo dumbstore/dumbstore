@@ -11,6 +11,7 @@ class Asciigram < Dumbstore::App
   def text params
     ascii_art = Array.new
     # Mu the cat
+    ascii_art.push("derp\n    herp\nderp\n");
     ascii_art.push(" .       .\n
  |\\-----/|\n
  | o   o | \n
