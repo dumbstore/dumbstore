@@ -57,6 +57,6 @@ o \\ o |* |\n
 
     ##ascii_art.shuffle!
     ##ascii_art.first.to_sms
-    return "<Response><Sms>#{ascii_art.first}</Sms></Response>"
+    "<Response><Sms>Asciigram\n---------\nApp is experiencing technical difficulties.</Sms></Response>"
   end
 end
