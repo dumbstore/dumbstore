@@ -11,12 +11,12 @@ class Asciigram < Dumbstore::App
   def text params
     ascii_art = Array.new
     # Mu the cat
-    ascii_art.push(" .&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;. \n
+    ascii_art.push(" .       . \n
  |\\-----/| \n
- | o&nbsp;&nbsp;&nbsp;o | \n
+ | o   o | \n
 >|==>v<==|<\n
- \\&nbsp;&nbsp;&nbsp;^&nbsp;&nbsp;&nbsp;/ \n
- &nbsp;==(M)==  \n
+ \\   ^   / \n
+  ==(M)==  \n
  /       \\ \n
 ")
     # Rando pug
