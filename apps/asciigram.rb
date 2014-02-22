@@ -12,7 +12,7 @@ class Asciigram < Dumbstore::App
     ascii_art = Array.new
     # Mu the cat
     #ascii_art.push("derp\n    herp\nderp\n");
-    ascii_art.push(" |\\------/|
+    ascii_art.push(" |\\-----/|
 | o    o | 
 |=&gt;v&lt;=|
  \\   ^   /
@@ -39,11 +39,11 @@ class Asciigram < Dumbstore::App
 ")
     # Phoenix sunset
     ascii_art.push("
-  _| ** * **__ 
- |.|_ **_**/--\\
--|:::|*(_)*|--|_-
+  __| ** * **__ 
+|:.|_ **_**/--\\
+|:.:.|*(_)*|--|_-
 _________________
-  __\\___  __\\___
+  __\\___   _\\___
  /__[]_L\\/__[]_L\\
 -----------------
 ")
