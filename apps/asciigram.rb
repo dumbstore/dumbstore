@@ -20,7 +20,7 @@ class Asciigram < Dumbstore::App
  /        \\
 ")
     # Rando pug
-    ascii_art.push("      ____________ 
+    ascii_art.push(" _____________ 
 / / ^ || ^ \\ \\
 \\/|(O)(O)|\\/
   | / (..) \\ |
