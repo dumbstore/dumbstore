@@ -46,10 +46,10 @@ ________________
 ")
     # Duckface selfie
     ascii_art.push("
-_   _  __
+_    _   __
 o \\ o |* |
-  &lt;   |_m|
-      / /
+  &lt;   |m|
+       / /
 ")
 
     ##ascii_art.shuffle!
