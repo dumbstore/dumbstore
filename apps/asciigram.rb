@@ -48,8 +48,8 @@ ________________
     ascii_art.push("
 _    _   __
 o \\ o |* |
-  &lt;   |m|
-       / /
+  &lt;    |m|
+        / /
 ")
 
     ##ascii_art.shuffle!
