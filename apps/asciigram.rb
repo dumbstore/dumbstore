@@ -37,7 +37,7 @@ class Asciigram < Dumbstore::App
     # Phoenix sunset
     ascii_art.push("
   __|** * **__ 
-|:.|_**_**/--\\
+|:.|_** **/--\\
 |:.:.|*(_)*|--|_-
 _________________
   __\\___   _\\___
