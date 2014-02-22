@@ -103,7 +103,7 @@ module Dumbstore
   end
 
   def self.twilio
-    @twilio_client ||= Twilio::REST::Client.new self.account_sid, self.auth_token
+    @twilio_client ||= Twilio::REST::Client.new ENV['DUMBSTORE_ACCOUNT_SID'], ENV['DUMBSTORE_AUTH_TOKEN'] #self.account_sid, self.auth_token
     @twilio_client.account
   end
 
