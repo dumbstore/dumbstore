@@ -28,11 +28,11 @@ class Asciigram < Dumbstore::App
 /  --------  \\
 ")
     # Latte art from barista at Glass Shop 
-    ascii_art.push("   __---__
+    ascii_art.push(" ..------..
 / (((\\v/))) \\
 |   \\\\|//   |###
 \\    \\Y/    /__/
- --____||____--
+ --__||__--
 ")
     # Phoenix sunset
     ascii_art.push("
