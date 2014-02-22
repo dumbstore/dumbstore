@@ -54,7 +54,7 @@ o \\ o |* |
 
     ##ascii_art.shuffle!
     #ascii_art.first.to_sms # this line kills line breaks
-    "<Response><Sms>#{ascii_art[3]}</Sms></Response>"
+    "<Response><Sms>#{ascii_art[4]}</Sms></Response>"
     ##"<Response><Sms>Asciigram\n---------\nApp is experiencing technical difficulties.</Sms></Response>" # nevar forget
   end
 end
