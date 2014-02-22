@@ -28,8 +28,8 @@ class Asciigram < Dumbstore::App
 /  --------  \\
 ")
     # Latte art from barista at Glass Shop 
-    ascii_art.push(" ..------..
-/ (((\\v/))) \\
+    ascii_art.push(" _.--------._
+/ ((\\v/)) \\
 |   \\\\|//   |###
 \\    \\Y/    /__/
  --__||__--
