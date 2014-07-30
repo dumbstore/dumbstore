@@ -8,7 +8,7 @@ class Quotify < Dumbstore::App
 
 	text_id 'quotify'
 
-	def text params
+	def quotify params
 		message = params['Body'].split
 		count = message.length / 3 + rand(message.length / 3) #between 1/3 - 2/3 of the words will be quoted
 		quote_indices = []
@@ -43,8 +43,12 @@ class Quotify < Dumbstore::App
 		if message[i][0].chr == '"' && message[i][-1].chr == '"' && phrasing
 			message[-1] = message[i][1...message[i].length]
 		end
-		result = ''
-		message.each{|e| result += e + ' '}
-		"<Response><Sms>#{result}</Sms></Response>"
+		quotify = ''
+		message.each{|e| quotify += e + ' '}
+		return quotify
+	end
+
+	def text params
+		quotify(params).to_sms
 	end
 end
