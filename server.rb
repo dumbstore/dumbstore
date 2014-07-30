@@ -9,10 +9,6 @@ get('/apps') { @apps = Dumbstore::Text.apps.merge(Dumbstore::Voice.apps).values.
 get('/about') { erb :about }
 get('/documentation') { erb :documentation }
 
-Dumbstore.twilio_account_sid = ENV['DUMBSTORE_ACCOUNT_SID']
-Dumbstore.twilio_auth_token = ENV['DUMBSTORE_AUTH_TOKEN']
-Dumbstore.twilio_app_name = "Dumbstore - Sandbox"
-
 post '/voice' do
   @params = params
   if params['Digits']
