@@ -1,4 +1,5 @@
 class TextRoulette < Dumbstore::App
+  name 'Text Roulette'
   author 'quantumpotato'
   author_url 'https://github.com/quantumpotato'
   description 'leave a message, take a message'
