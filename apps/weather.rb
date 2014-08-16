@@ -6,7 +6,7 @@ require 'geocoder'
 class Weather < Dumbstore::App
   name 'Weather'
   author 'Allison Burtch'
-  author_url 'http://allisonburtch.net/'
+  author_url 'http://www.allisonburtch.net/'
   description <<-DESCRIPTION
   Forecasts the weather at the given location. For example, text <code>weather 11205</code> or <code>weather Brooklyn, NY</code> to get the weather in Brooklyn.
   DESCRIPTION
@@ -21,11 +21,10 @@ class Weather < Dumbstore::App
 	lat = Geocoder.search("#{message_body}").first.geometry["location"]["lat"]
 	lng = Geocoder.search("#{message_body}").first.geometry["location"]["lng"]
 
-	Forecast::IO.api_key = '49f769efb11fc808363e17f9d04c428f'
+	ForecastIO.api_key = '49f769efb11fc808363e17f9d04c428f'
+	forecast = ForecastIO.forecast(lat, lng)
 
-	forecast = Forecast::IO.forecast(lat, lng)
-
-	forecast_current = "It is currently #{forecast.currently.temperature} degrees and #{forecast.hourly.summary}"
+	forecast_current = "It is currently #{forecast.currently.temperature}. #{forecast.hourly.summary}"
 	forecast_future = forecast.daily.summary.gsub(/°/," degrees")
 	forecast_string = forecast_current + forecast_future 
 
