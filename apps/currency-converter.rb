@@ -6,7 +6,7 @@ class CurrencyConverter < Dumbstore::App
 	author 'Arnav Roy'
 	author_url 'http://www.arnavroy.com/'
 	description <<-DESCRIPTION 
-	Currency converter. Text 'currency'. In the body of your text, put your source currency code to destination currency code as per http://en.wikipedia.org/wiki/ISO_4217#Active_codes. Ex: <code>currency-converter eur to usd</code>
+	Currency converter. Text 'currency'. In the body of your text, put your source currency code to destination currency code as per http://en.wikipedia.org/wiki/ISO_4217#Active_codes. Ex: <code>currency eur to usd</code>
 	DESCRIPTION
 
 	text_id 'currency'

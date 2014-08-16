@@ -1,3 +1,4 @@
+ruby '2.1.2'
 source "https://rubygems.org"
 gem 'twilio-ruby'
 gem 'sinatra'
@@ -10,3 +11,5 @@ gem 'json', '~> 1.7.7'
 gem 'wikipedia-client'
 gem 'google_directions'
 gem 'dicechucker'
+gem 'htmlentities'
+gem 'hpricot'

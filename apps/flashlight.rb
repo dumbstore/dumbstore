@@ -13,7 +13,7 @@ class Flashlight < Dumbstore::App
   def text params
     8.times do
       Dumbstore.twilio.sms.messages.create(
-        from:Dumbstore::NUMBER,
+        from:Dumbstore.phone_number,
         to:params['From'],
         body:" flash "
       )

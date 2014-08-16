@@ -1,0 +1,9 @@
+#!/bin/sh
+touch tmp/restart.txt
+echo "restarting the Dumbstore..."
+
+# stop servers
+bundle exec thin -C deploy/thin-config.yml stop --servers 4
+
+# start servers
+bundle exec thin -C deploy/thin-config.yml start

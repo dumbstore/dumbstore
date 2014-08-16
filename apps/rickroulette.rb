@@ -3,7 +3,7 @@ class Rickroulette < Dumbstore::App
   author 'David Huerta'
   author_url 'http://www.davidhuerta.me'
   description <<-DESCRIPTION
-  Call Dumbstore, enter the rick for the ID. Hold your phone up to your head for a 1 in 6 chance of getting rickrolled.
+  Call Dumbstore, enter 'rick' for the ID. Hold your phone up to your head for a 1 in 6 chance of getting rickrolled.
   DESCRIPTION
 
   voice_id 'rick'
