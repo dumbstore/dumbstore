@@ -4,7 +4,7 @@ class Sunsign < Dumbstore::App
   name 'Sunsign'
   author 'Kevin Driscoll'
   author_url 'http://kevindriscoll.org/'
-  description "Look up the Zodiac Sun sign for a given birth date (month, day)."
+  description "Retrieve the zodiac Sun sign for a given birth month and day (e.g., august 11)"
 
   text_id 'sunsign'
 
@@ -41,7 +41,7 @@ def get_sign(birthdate)
   elsif birthday < 366
     "Capricorn"
   else
-    "...?"
+    "¯\_(ツ)_/¯"
   end
 end
 
