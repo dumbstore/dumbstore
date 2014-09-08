@@ -4,7 +4,7 @@ class Sunsign < Dumbstore::App
   name 'Sunsign'
   author 'Kevin Driscoll'
   author_url 'http://kevindriscoll.org/'
-  description "Retrieve the zodiac Sun sign for a given birth month and day (e.g., august 11)"
+  description "Retrieve the zodiac Sun sign for a given birth month and day (e.g. <code>sunsign august 11</code>)"
 
   text_id 'sunsign'
 
