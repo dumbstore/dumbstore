@@ -30,7 +30,7 @@
 
   <% n = 0 %>
   <% @apps.each do |app| %>
-    <div class="well span5">
+    <div class="well span5" id="<%= app.text_id ? app.text_id : app.voice_id %>">
       <h2><%= app.name %></h2>
       <div class="pull-right" style="padding-left: 1em">
         <% if app.text_id %><p><i class="icon-envelope"></i> <%= app.text_id %></p><% end %>
