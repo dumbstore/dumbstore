@@ -27,7 +27,7 @@ def get_sign(birthdate)
   elsif birthday < 173
     "Gemini"
   elsif birthday < 204
-    "Cancer" 
+    "Cancer"
   elsif birthday < 235
     "Leo"
   elsif birthday < 267
