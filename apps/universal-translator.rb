@@ -15,13 +15,13 @@ class UniversalTranslator < Dumbstore::App
   text_id 'ut'
 
   def text params
+    # This key works only in dumbsto.re, you'll want your own API key to use in your own dumbstore implementation
+    # Google Translate API key can be acquired here: https://cloud.google.com/translate/v2/getting_started
+    EasyTranslate.api_key = "AIzaSyBS9qbDSodyYKxOJx6I8mXLQ0iFYWnWAEU"
     message_chunks = params['Body'].downcase.split(" ")
     #lang_codes = gt.supported_languages() # two-dimensional array of ISO 639-1 codes
     lang_codes = EasyTranslate::LANGUAGES
     translated_text = "¯\\(°_o)/¯"
-    # This key works only in dumbsto.re, you'll want your own API key to use in your own dumbstore implementation
-    # Google Translate API key can be acquired here: https://cloud.google.com/translate/v2/getting_started
-    EasyTranslate.api_key = "AIzaSyBS9qbDSodyYKxOJx6I8mXLQ0iFYWnWAEU"
 
     # Check if the first word is a lang code
     if (message_chunks.length > 1)
