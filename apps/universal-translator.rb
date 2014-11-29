@@ -10,7 +10,7 @@ class UniversalTranslator < Dumbstore::App
   translated to English. Uses ISO 693-1 codes for specifying language.<br />
   Format: <code>ut [translation code] [word]</code><br />
   Examples: <code>ut Flughafen</code><br />
-  <code>ut en Flughafen</code>
+  <code>ut es Flughafen</code>
   DESCRIPTION
   text_id 'ut'
 
@@ -32,6 +32,7 @@ class UniversalTranslator < Dumbstore::App
       end
     else
       #Automatically detect language, translate to English
+      logger.info "Werd: #{message_chunks[0]}"
       translated_text = EasyTranslate.translate message_chunks[0], :format => 'text', :to => :en
     end
 
