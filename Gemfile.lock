@@ -11,16 +11,20 @@ GEM
       faraday
       hashie
       multi_json
-    geocoder (1.2.3)
+    geocoder (1.2.5)
     google_directions (0.1.6.2)
       nokogiri (>= 1.4.1)
     hashie (3.2.0)
     hpricot (0.8.6)
     htmlentities (4.3.2)
-    json (1.7.7)
+    httparty (0.13.1)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
+    json (1.8.1)
     jwt (1.0.0)
     mini_portile (0.6.0)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
     multipart-post (2.0.0)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
@@ -53,7 +57,8 @@ DEPENDENCIES
   hashie
   hpricot
   htmlentities
-  json (~> 1.7.7)
+  httparty
+  json (~> 1.8.1)
   nokogiri
   sinatra
   thin
