@@ -87,17 +87,25 @@
       <li>Ruby 2.1.2 or above (can be installed with <a href="http://rvm.io/">RVM</a>)</li>
       <li>Ruby Gems (can also be installed with <a href="http://rvm.io/">RVM</a>)</li>
     </ul>
+
+
+    <h3>Securing Twilio Credentials</h3>
+    
+    <p>Dumbsto.re uses the <a href="https://www.twilio.com">Twilio</a> REST API to send phone calls and text messages. Once you sign up for Twilio and buy a number you'll want to copy your Twilio SID and authentication token into environment variables (Heroku calls these "<a href="https://devcenter.heroku.com/articles/config-vars">config vars</a>") for the system user that Dumb Store is running under. With many web servers, that's typically a user called "www-data" or something similar. For that user you'll want to make sure these variables are available that user, and only that user:</p>
+    
+    <pre><code>DUMBSTORE_ACCOUNT_SID=[YOUR ACCOUNT SID]</code></pre>
+    <pre><code>DUMBSTORE_AUTH_TOKEN=[YOUR AUTH TOKEN]</code></pre>
     
     <h3>Installation</h3>
     
     <p>The Dumb Store is configured to look for itself in /home/dumbstore. This can be changed in deploy/thin-config.yml. Otherwise though, to install the Dumb Store on a Debian-based GNU/Linux system, create the directory /home/dumbstore, clone the code from our git repository, and install gem dependencies like so:</p>
     
     <pre><code>sudo mkdir /home/dumbstore
-sudo git clone git@github.com:yourname/dumbstore.git /home/dumbstore/.
+sudo git clone git@github.com:[YOUR GITHUB USER]/dumbstore.git /home/dumbstore/.
 cd /home/dumbstore/
 bundle</code></pre>
     
-    <p>Once all gems are installed from running bundle, you can start the Dumb Store with the included Thin web server like so:</p>
+    <p>Once all gems are installed from running bundle, you can start the Dumb Store using the system user you want it to run under with the included Thin web server like so:</p>
     
     <pre><code>ruby server.rb</code></pre>
     
@@ -106,7 +114,13 @@ bundle</code></pre>
     <pre><code> == Sinatra/1.4.5 has taken the stage on 4567 for development with backup from Thin</code></pre>
     
     <p>In this case, the port is "4567", but it will probably be different in your install. In your browser, you should now be able to navigate to your server's IP address with the specified port to see your Dumb Store install live: <code>http://[IP ADDRESS]:[PORT NUMBER]</code></p>
+    
+    <p>Once you have either a domain name or even just your server's IP address set up, you can configure Twilio to send voice and text requests to your Twilio app:</p>
+    
+    Voice:<pre><code>http://[YOUR DUMBSTORE URL]/voice</code></pre>
+    Messaging:<pre><code>http://[YOUR DUMBSTORE URL]/text</code></pre>
     <br />
+    
   </div>
 </body>
 </html>
