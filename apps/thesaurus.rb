@@ -1,7 +1,7 @@
 require 'httparty'
 
 class Thesaurus < Dumbstore::App
-  name 'Thesuarus'
+  name 'Thesaurus'
   author 'Liz Goldstein'
   author_url 'http://cira.io/'
   description <<-DESCRIPTION
