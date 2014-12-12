@@ -20,11 +20,11 @@ class SecureDrop < Dumbstore::App
 			"Something went wrong, please try again later."
 		else
 			random_onions = onions.split(/(onion)/).each_slice(2).map(&:join).sample(3)
-			puts random_onions.join(" ")
+			random_onions.join(" ")
 		end
 	end
 		
 	def text params
-		"<Response><Sms>#{whistle()}</Sms></Response>"
+		"<Response><Sms>#{whistle}</Sms></Response>"
 	end
 end
