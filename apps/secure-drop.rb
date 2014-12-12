@@ -22,9 +22,9 @@ class SecureDrop < Dumbstore::App
 			random_onions = onions.split(/(onion)/).each_slice(2).map(&:join).sample(3)
 			puts random_onions.join(" ")
 		end
-
-		def text params
-			"<Response><Sms>#{whistle()}</Sms></Response>"
-		end
+	end
+		
+	def text params
+		"<Response><Sms>#{whistle()}</Sms></Response>"
 	end
 end
