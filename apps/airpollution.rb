@@ -6,9 +6,9 @@ class Airpollution < Dumbstore::App
     author 'David Su'
     author_url 'http://usdivad.com/'
     description <<-DESCRIPTION
-    Receive the AQI (air quality index) in a given city via SMS.
+    Receive the AQI (air quality index) in a given city or zipcode area via SMS.
     Data drawn from <a href="http://aqicn.org/">AQICN</a> and <a href="http://airnow.org/">AirNow</a>.
-    Usage: Text <code>airpollution [city/zipcode]</code>
+    Usage: <code>airpollution [city or zipcode]</code>
     DESCRIPTION
     text_id 'airpollution'
 
