@@ -37,7 +37,7 @@ The Dumb Store uses the [GitHub's "Fork & Pull" Collaborative Model](https://hel
   $ touch apps/my-app.rb
   ```
 
-2. A Dumb App is a Ruby class that inherits from `Dumbstore::App`. The name of the class must be a titlized verison of the file name. For example, `weather.rb` should have a class called `Weather`. A file called `local-listings.rb` should have a class called `LocalListings`.
+2. A Dumb App is a Ruby class that inherits from `Dumbstore::App`. The name of the class must be a titlized version of the file name. For example, `weather.rb` should have a class called `Weather`. A file called `local-listings.rb` should have a class called `LocalListings`.
 
   ```ruby
   class Weather < Dumbstore::App
